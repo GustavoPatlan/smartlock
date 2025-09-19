@@ -333,7 +333,7 @@ Puedes usar esa información para conectar componentes reales o de simulación d
 
 ----
 ## 👥 Autores
-- Gustavo Andrey Patlán Cartagena
+- Gustavo Andrey Patlan Cartagena
 - José Alejandro Romero Álvarez
 - Cristian Aguilar Alcaraz
 - David Alejandro Castellanos Hernández
