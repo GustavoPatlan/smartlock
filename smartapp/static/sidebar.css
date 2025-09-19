@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+.sidebar {
+    width: 230px;
+    height: 100%;
+    background: #ffff;
+    color: black;
+    position: fixed;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul li{
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.sidebar ul .li_link:hover{
+    border: solid 2px #686868;
+    border-radius: 8px;
+    background: black;
+}
+
+.sidebar ul .li_link a, .sidebar ul .li_link button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar ul .li_link:hover a, .sidebar ul .li_link:hover button{
+    color: #ffff;
+}
+
+.sidebar ul .li_link button{
+    background: none;
+    border: none;
+}
+
+.sidebar ul .li_logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sidebar ul .li_logo button {
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+}
+
+.sidebar ul .li_logo button ion-icon{
+    font-size: 25px;
+    margin-right: 10px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+.sidebar ul .li_logo a{
+    color: black;
+    text-decoration: none;
+}
+
+.sidebar ul .li_link a i, .sidebar ul .li_link button i{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    margin-right: 10px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+.sidebar ul .li_link button span{
+    font-size: 16px;
+}
+
+.sidebar ul li span {
+    transition: opacity 0.3s;
+}
+
+.collapsed ul li span, .collapsed ul li h3 {
+    opacity: 0;
+    pointer-events: none;
+}
+
+main {
+    margin-left: 230px;
+    padding: 20px;
+    flex-grow: 1;
+    transition: margin-left 0.3s;
+    z-index: 0;
+    color: #ffff;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar.collapsed ~ main {
+    margin-left: 70px;
+    transition: margin-left 0.3s;
+}
+
+.notificacion {
+    position: fixed;
+    top: 20px;
+    display: none;
+    flex-direction: column;
+    width: 300px;
+    padding: 5px;
+    border: solid 2px #333;
+    border-radius: 8px;
+    z-index: 3;
+}
+
+.notificacion #mensaje{
+    color: #ffff;
+    font-size: 14px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.notificacion .notificacion_top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: solid 2px #333;
+}
+
+.notificacion .notificacion_top button{
+    color: #ffff;
+    background: none;
+    border: none;
+    padding-right: 5px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.notificacion .notificacion_top button:hover{
+    font-size: 15px;
+}
+
+.notificacion .notificacion_top .notificacion_tittle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notificacion .notificacion_top .notificacion_tittle i{
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.notificacion .notificacion_top .notificacion_tittle span{
+    color: #ffff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#logoutDialog {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#logoutDialog .dialog-content,
+#logoutDialog .dialog-content .dialog-buttons{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#logoutDialog .dialog-content .dialog-buttons a,
+#logoutDialog .dialog-content .dialog-buttons button{
+    color: black;
+    border: solid 2px #686868;
+    border-radius: 8px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+} 
+
+#logoutDialog .dialog-content .dialog-buttons a{
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+#logoutDialog .dialog-content .dialog-buttons button{
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#logoutDialog .dialog-content .dialog-buttons a:hover,
+#logoutDialog .dialog-content .dialog-buttons button:hover{
+    color: #ffff;
+    background: black;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: absolute;
+        z-index: 20;
+        transition: width 0.3s ease-in-out;
+    }
+
+    main {
+        margin-left: 70px;
+        transition: none;
+    }
+
+    .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 15;
+        display: none;
+    }
+}

@@ -1,0 +1,136 @@
+main, main .profile_card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .profile_card{
+    border: solid 2px #686868;
+    border-radius: 8px;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    width: 400px;
+}
+
+main .profile_card h2, main .profile_card h3,
+main .profile_card #span_status, main .profile_card #span_code,
+main .profile_card #profile_button_update{
+    margin-bottom: 7px;
+}
+
+main .profile_card #span_status{
+    background: crimson;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+main .profile_card img {
+    width: 150px;
+    height: auto;
+}
+
+main .profile_card h3{
+    margin-top: 5px;
+}
+
+main .profile_card #span_status_1, main .profile_card #span_status_2{
+    font-weight: 600;
+    font-style: italic;
+    background: #686868;
+    font-size: 14px;
+}
+
+main .profile_card #span_code{
+    font-size: 14px;
+}
+
+
+main .profile_card .profile_action{
+    background: none;
+    color: #686868;
+    border: solid 2px #686868;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    height: 40px;
+    width: 150px;
+    cursor: pointer;
+}
+
+main .profile_card .profile_action:hover{
+    color: #ffff;
+    border: solid 2px #ffff;
+}
+
+main .profile_card #profile_button_update:hover{
+    background: lawngreen;
+}
+
+main .profile_card #profile_button_delete:hover{
+    background: crimson;
+}
+
+#deleteAccount {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#deleteAccount .dialog-content, #deleteAccount .dialog-content .dialog-buttons{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#deleteAccount .dialog-content input{
+    border: solid 2px #686868;
+    background: none;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+}
+
+#deleteAccount .dialog-content .dialog-buttons button{
+    color: black;
+    border: solid 2px #686868;
+    border-radius: 8px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+} 
+
+#deleteAccount .dialog-content .dialog-buttons #boton_enviar_datos{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#deleteAccount .dialog-content .dialog-buttons #boton_enviar_datos:hover{
+    background: lawngreen;
+}
+
+#deleteAccount .dialog-content .dialog-buttons #boton_cancelar_enviar_datos:hover{
+    background: crimson;
+}
+
+#deleteAccount .dialog-content .dialog-buttons button:hover{
+    color: #ffff;
+}
+
+@media (max-width: 520px) {
+    main .profile_card{
+        width: 100%;
+    }
+}

@@ -1,0 +1,70 @@
+{% extends "sidebar.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+{% endblock %}
+{% block title %}Perfil{% endblock %}
+
+{% block popup %}
+<dialog id="updateDialog">
+    <div class="dialog-content">
+        <span>Ingresa el código enviado a tu correo para actualizar tus datos</span>
+        <input type="text" id="codeUpdate">
+        <div class="dialog-buttons">
+            <button id="boton_enviar_datos" onclick="enviarCodigo()">Enviar</button>
+            <button onclick="closeDialogUpdate()" id="boton_cancelar_enviar_datos">Cancelar</button>
+        </div>
+    </div>
+</dialog>
+<dialog id="updatePass">
+    <div class="dialog-content">
+        <span>Ingresa una nueva Contraseña</span>
+        <input type="text" id="newPassword">
+        <div class="dialog-buttons">
+            <button id="boton_enviar_datos" onclick="enviarPass()">Enviar</button>
+            <button onclick="closeDialogPass()" id="boton_cancelar_enviar_datos">Cancelar</button>
+        </div>
+    </div>
+</dialog>
+<dialog id="deleteAccount">
+    <div class="dialog-content">
+        <span>¿Quieres Eliminar tu Cuenta?</span>
+        <div class="dialog-buttons">
+            <button id="boton_enviar_datos" onclick="eliminarCuenta()">Aceptar</button>
+            <button onclick="closeDialogDelete()" id="boton_cancelar_enviar_datos">Cancelar</button>
+        </div>
+    </div>
+</dialog>
+{% endblock %}
+{% block content %}
+<div class="profile_card">
+    <h2>Bienvenido {{usuario[1]}}</h2>
+    <div class="profile_input">
+        <i><ion-icon name="mail-outline"></ion-icon></i>
+        <input type="email" value="{{usuario[0]}}" placeholder="Correo Electronico" autocomplete="off" id="email">
+    </div>
+    <div class="profile_input">
+        <i><ion-icon name="person-outline"></ion-icon></i>
+        <input type="text" value="{{usuario[1]}}" placeholder="Nombres" autocomplete="off" id="nombre">
+    </div>
+    <div class="profile_input">
+        <i><ion-icon name="person-outline"></ion-icon></i>
+        <input type="text" value="{{usuario[2]}}" placeholder="Apellidos" autocomplete="off" id="apellido">
+    </div>
+    <div class="profile_pass">
+        <div class="profile_pass_info">
+            <i><ion-icon name="key-outline"></ion-icon></i>
+            <span>Contraseña</span>
+        </div>
+        <button onclick="openDialogPass()">Modificar</button>
+    </div>
+    <button class="profile_action" id="profile_button_update" onclick="openDialogUpdate()">Actualizar Datos</button>
+    <button class="profile_action" id="profile_button_delete" onclick="openDialogDelete()">Eliminar Cuenta</button>
+</div>
+{% endblock %}
+{% block script_section %}
+<script src="{{ url_for('static', filename='js_profile.js') }}"></script>
+<script src="{{ url_for('static', filename='notification.js') }}"></script>
+<script>
+    let userCasillero = '{{usuario[0]}}';
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename='logo.png')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='code.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <title>Smartlock</title>
+</head>
+
+<body>
+    <div id="notificacion" class="notificacion">
+        <div class="notificacion_top">
+            <div class="notificacion_tittle">
+                <i id="notification_icon"><ion-icon id="icon_form"></ion-icon></i>
+                <span>Smartlock</span>
+            </div>
+            <button onclick="cerrarNotificacion()">✖</button>
+        </div>
+        <span id="mensaje"></span>
+    </div>
+    <main>
+        <img src="{{url_for('static', filename='logo.png')}}">
+        <div id="panel_code">
+            <h2>Ingresa tu Correo</h2>
+            <div class="input_style">
+                <input type="email" placeholder="Correo Electrónico" id="email" autocomplete="off">
+                <button onclick="enviarCodigo()" id="button_again">Enviar</button>
+            </div>
+            <h5 id="tittle_code_input">Ingresa tu Codigo</h5>
+            <div class="input_style" id="code_input">
+                <input type="text" placeholder="Codigo" id="code" autocomplete="off">
+                <button onclick="verificarCodigo()">Enviar</button>
+            </div>
+            <a href="/cancel" class="guess_button">Cancelar</a>
+        </div>
+        <div id="panel_pass">
+            <h2>Nueva Contraseña</h2>
+            <div class="input_style">
+                <input type="text" placeholder="Contraseña" id="key" autocomplete="off">
+                <button onclick="actualizarLlave()" id="button_again">Enviar</button>
+            </div>
+            <a href="/cancel" class="guess_button">Cancelar</a>
+        </div>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{{url_for('static', filename='js_login.js')}}"></script>
+    <script src="{{url_for('static', filename='notification.js')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <dialog id="logoutDialog">
+        <div class="dialog-content">
+            <span>¿Estás seguro de que deseas cerrar sesión?</span>
+            <div class="dialog-buttons">
+                <a href="/cancel">Salir</a>
+                <button onclick="closeDialog()">Cancelar</button>
+            </div>
+        </div>
+    </dialog>
+    <div class="backdrop" id="backdrop"></div>
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li class="li_logo">
+                <button onclick="toggleSidebar()"><ion-icon name="close-outline" id="togle_icon"></ion-icon></button>
+                <a href="/home">
+                    <h3>Smartlock</h3>
+                </a>
+            </li>
+            <li class="li_link">
+                <a href="/home">
+                    <i><ion-icon name="home-outline"></ion-icon></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="li_link">
+                <a href="/history">
+                    <i><ion-icon name="clipboard-outline"></ion-icon></i>
+                    <span>Historial</span>
+                </a>
+            </li>
+            <li class="li_link">
+                <a href="/profile">
+                    <i><ion-icon name="person-outline"></ion-icon></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="li_link">
+                <button onclick="openDialog()">
+                    <i><ion-icon name="exit-outline"></ion-icon></i>
+                    <span>Salir</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    {% block popup %}{% endblock %}
+    <main>
+        <div id="notificacion" class="notificacion">
+            <div class="notificacion_top">
+                <div class="notificacion_tittle">
+                    <i id="notification_icon"><ion-icon id="icon_form"></ion-icon></i>
+                    <span>Smartlock</span>
+                </div>
+                <button onclick="cerrarNotificacion()">✖</button>
+            </div>
+            <span id="mensaje"></span>
+        </div>
+        {% block content %}{% endblock %}
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{{ url_for('static', filename='js_sidebar.js') }}"></script>
+    {% block script_section %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+main, main .profile_card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .profile_card{
+    border: solid 2px #686868;
+    border-radius: 8px;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    width: 400px;
+}
+
+main .profile_card h2{
+    margin-bottom: 5px;
+}
+
+main .profile_card .profile_input, main .profile_card .profile_pass{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    height: 40px;
+    border: solid 2px #686868;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 100%;
+}
+
+main .profile_card .profile_input input {
+    background-color: transparent;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #fff;
+    width: 100%;
+    font-size: 14px;
+}
+
+main .profile_card .profile_input i,main .profile_card .profile_pass i{
+    color: #686868;
+    border-right: solid 2px #686868;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+}
+
+main .profile_card .profile_pass{
+    justify-content: space-between;
+}
+
+main .profile_card .profile_pass .profile_pass_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+main .profile_card .profile_pass .profile_pass_info span{
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+main .profile_card .profile_pass button{
+    color: #686868;
+    background: none;
+    border: none;
+    border-left: solid 2px #686868;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+main .profile_card .profile_pass button:hover{
+    color: #ffff;
+}
+
+main .profile_card .profile_action{
+    background: none;
+    color: #686868;
+    border: solid 2px #686868;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    width: 150px;
+}
+
+main .profile_card .profile_action:hover{
+    color: #ffff;
+    border: solid 2px #ffff;
+}
+
+main .profile_card #profile_button_update{
+    margin-bottom: 5px;
+}
+
+main .profile_card #profile_button_update:hover{
+    background: #19d21c;
+}
+
+main .profile_card #profile_button_delete:hover{
+    background: crimson;
+}
+
+#updateDialog, #updatePass, #deleteAccount {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#updateDialog .dialog-content, #updateDialog .dialog-content .dialog-buttons,
+#updatePass .dialog-content, #updatePass .dialog-content .dialog-buttons,
+#deleteAccount .dialog-content, #deleteAccount .dialog-content .dialog-buttons{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#updateDialog .dialog-content input, #updatePass .dialog-content input,
+#deleteAccount .dialog-content input{
+    border: solid 2px #686868;
+    background: none;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+}
+
+#updateDialog .dialog-content .dialog-buttons button,
+#updatePass .dialog-content .dialog-buttons button,
+#deleteAccount .dialog-content .dialog-buttons button{
+    color: black;
+    border: solid 2px #686868;
+    border-radius: 8px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+} 
+
+#updateDialog .dialog-content .dialog-buttons #boton_enviar_datos,
+#updatePass .dialog-content .dialog-buttons #boton_enviar_datos,
+#deleteAccount .dialog-content .dialog-buttons #boton_enviar_datos{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#updateDialog .dialog-content .dialog-buttons #boton_enviar_datos:hover,
+#updatePass .dialog-content .dialog-buttons #boton_enviar_datos:hover,
+#deleteAccount .dialog-content .dialog-buttons #boton_enviar_datos:hover{
+    background: #19d21c;
+}
+
+#updateDialog .dialog-content .dialog-buttons #boton_cancelar_enviar_datos:hover,
+#updatePass .dialog-content .dialog-buttons #boton_cancelar_enviar_datos:hover,
+#deleteAccount .dialog-content .dialog-buttons #boton_cancelar_enviar_datos:hover{
+    background: crimson;
+}
+
+#updateDialog .dialog-content .dialog-buttons button:hover,
+#updatePass .dialog-content .dialog-buttons button:hover,
+#deleteAccount .dialog-content .dialog-buttons button:hover{
+    color: #ffff;
+}
+
+@media (max-width: 520px) {
+    main .profile_card{
+        width: 100%;
+    }
+}

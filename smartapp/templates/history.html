@@ -1,0 +1,49 @@
+{% extends "sidebar.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='history.css') }}">
+{% endblock %}
+
+{% block title %}Historial{% endblock %}
+
+{% block content %}
+<div class="profile_card">
+    <h3>Historial de Aperturas de tus casillero solicitados</h3>
+    {% if solicitudes %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Espacio</th>
+                    <th>Casillero</th>
+                    <th>Ubicación</th>
+                </tr>
+            </thead>
+            <tbody id="solicitudesTableBody">
+                {% for solicitud in solicitudes %}
+                <tr>
+                    <td>{{ solicitud[3] }}</td>
+                    <td>{{ solicitud[2] }}</td>
+                    <td>#{{ solicitud[4] }}</td>
+                    <td>{{ solicitud[5] }}</td>
+                    <td>{{ solicitud[6] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <h5>Parece que no has solicitado ningún casillero aún</h5>
+    <a href="/home">SOLICITA UNO AQUÍ</a>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block script_section %}
+<script src="{{ url_for('static', filename='notification.js') }}"></script>
+<script src="{{ url_for('static', filename='js_history.js') }}"></script>
+<script>
+    let userCasillero = '{{usuario}}';
+</script>
+{% endblock %}

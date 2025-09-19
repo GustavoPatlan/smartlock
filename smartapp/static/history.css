@@ -1,0 +1,65 @@
+main .profile_card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+main .profile_card h3 {
+    margin-bottom: 10px;
+}
+
+main .profile_card h5 {
+    margin-bottom: 25px;
+}
+
+main .profile_card a {
+    text-decoration: none;
+    color: #f1f1f1;
+    border: solid 2px #686868;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+main .profile_card a:hover {
+    background: #ffff;
+    color: black;
+}
+
+main .profile_card .table-container {
+    height: 90%;
+    overflow-y: auto;
+}
+
+main .profile_card .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main .profile_card table thead {
+    background: #ffff;
+    color: black;
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+}
+
+main .profile_card table td, main .profile_card table th {
+    padding: 10px;
+    border-bottom: solid #ffff 2px;
+}
+
+main .profile_card .table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+main .profile_card .table-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+main .profile_card .table-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}

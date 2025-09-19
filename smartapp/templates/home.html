@@ -1,0 +1,43 @@
+{% extends "sidebar.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block popup %}
+<dialog id="deleteAccount">
+    <div class="dialog-content">
+        <span>¿Quieres Terminar la Sesión del Casillero?</span>
+        <div class="dialog-buttons">
+            <button id="boton_enviar_datos" onclick="finishLocker()">Aceptar</button>
+            <button onclick="closeDialogDelete()" id="boton_cancelar_enviar_datos">Cancelar</button>
+        </div>
+    </div>
+</dialog>
+{% endblock %}
+{% block content %}
+<div class="profile_card">
+    {% if usuario[4] == 'SIN ASIGNAR' %}
+    <img src="{{url_for('static', filename='logo.png')}}">
+    <h2>Bienvenido {{usuario[1]}}</h2>
+    <button class="profile_action" onclick="solicitarCasillero()">Soliciar Casillero</button>
+    {% else %}
+    <h2>Bienvenido {{usuario[1]}}</h2>
+    <img src="{{url_for('static', filename='locker.png')}}">
+    <h3>Casillero #{{usuario[4]}}</h3>
+    <span id="span_status">CERRADO</span>
+    <span id="span_code">Codigo: {{usuario[5]}}</span>
+    <button class="profile_action" id="profile_button_update" onclick="abrirCasillero()">ABRIR</button>
+    <button class="profile_action" id="profile_button_delete" onclick="openDialogDelete()">FINALIZAR</button>
+    {% endif %}
+</div>
+{% endblock %}
+{% block script_section %}
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script src="{{ url_for('static', filename='notification.js') }}"></script>
+<script src="{{ url_for('static', filename='js_home.js') }}"></script>
+<script>
+    let userCasillero = '{{usuario[0]}}';
+</script>
+{% endblock %}

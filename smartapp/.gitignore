@@ -1,0 +1,8 @@
+# Configuración
+secret/.env
+*.env
+
+# Cachés de Python
+__pycache__/
+*.py[cod]
+*.so
