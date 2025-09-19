@@ -251,7 +251,9 @@ mysql -u tu_usuario -p smartlock < smartapp/db_estructura.sql
 #### Crear variables de entorno
 
 ```bash
-cd smartapp/secret
+cd smartapp
+mkdir -p secret
+cd secret
 type nul > .env
 notepad .env
 ```
