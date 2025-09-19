@@ -1,5 +1,4 @@
 # Configuración
-secret/.env
 *.env
 
 # Cachés de Python
